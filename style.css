@@ -100,7 +100,8 @@ header h1 i {
 }
 
 #track-artist {
-    font-size: 1.3em;
+    font-family: var(--font-display);
+    font-size: 1.2em;
     color: #ff7300;
     margin-bottom: 25px;
 }
