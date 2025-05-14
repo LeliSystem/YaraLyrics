@@ -76,8 +76,8 @@ header h1 i {
 }
 
 .album-art-img {
-    width: 200px;
-    height: 200px;
+    width: 260px;
+    height: 260px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -100,8 +100,8 @@ header h1 i {
 }
 
 #track-artist {
-    font-size: 1.1em;
-    color: var(--text-color);
+    font-size: 1.3em;
+    color: #ff7300;
     margin-bottom: 25px;
 }
 
@@ -126,12 +126,12 @@ header h1 i {
 }
 .player-controls button:hover {
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
     border-color: var(--primary-color);
-    transform: scale(1.1);
+    transform: scale(1.25);
 }
 .player-controls button:active {
-    transform: scale(0.95);
+    transform: scale(1.95);
 }
 
 .content-area {
@@ -188,7 +188,7 @@ header h1 i {
     padding: 5px 10px; /* Ajuste o padding */
     margin: 2px 0; /* Espaçamento vertical mínimo entre as linhas */
     box-sizing: border-box;
-    transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out, font-size 0.3s ease-in-out;
+    transition: opacity 0.6s ease-in-out, transform 0.8s ease-in-out, font-size 0.6s ease-in-out;
     will-change: opacity, transform; /* Ajuda na performance da animação */
     line-height: 2.3; /* Melhor legibilidade */
 }
@@ -202,7 +202,7 @@ header h1 i {
 
 #lyrics-window .active-lyric-display { /* Linha atual destacada */
     opacity: 1;
-    font-weight: 784; /* Mais destaque */
+       font-weight: 704; /* Mais destaque */
    color: #ff7300; /* Cor alaranjada para a linha ativa */
     font-size: 1.6em; /* Maior para destaque */
     transform: scale(1);
