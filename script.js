@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lrcFile: "lyrics/o_novo_john_helldiver.lrc",
         },
         {
-            soundCloudTrackTitle: "AZGame",
+            soundCloudTrackTitle: "AZGame (Fui lá Responder)",
             lrcFile: "lyrics/azgame.lrc",
         },
         {
@@ -64,11 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
             lrcFile: "lyrics/o_lado_enzo_da_forca.lrc",
         },
         {
-            soundCloudTrackTitle: "Chupa Vinicius (Versão pagode)",
+            soundCloudTrackTitle: "Chupa Vinicius (Deixa de Mancada)",
             lrcFile: "lyrics/chupa_vinicius_versao_pagode.lrc",
         },
         {
-            soundCloudTrackTitle: "Chupa Vinicius (Evanescense Version)",
+            soundCloudTrackTitle: "Chupa Vinicius (Acorda!)",
             lrcFile: "lyrics/chupa_vinicius_evanescense_version.lrc",
         },
         {

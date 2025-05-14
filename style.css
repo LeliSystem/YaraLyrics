@@ -279,3 +279,22 @@ header h1 i {
     .album-art-img { width: 150px; height: 150px; }
     #lyrics-window { min-height: 90px; }
 }
+/* Estilos padrão para telas maiores */
+.main-container {
+    display: flex; /* Mantém a ordem padrão em telas maiores */
+    flex-direction: row; /* Alinha os elementos horizontalmente */
+}
+/* Estilos para telas menores */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column; /* Empilha os elementos verticalmente */
+    }
+    #now-playing-info {
+        order: 2; /* Coloca o now-playing-info depois */
+        background-color: lightblue; /* Para visualização */
+    }
+    #player-controls {
+        order: 1; /* Coloca o player-controls antes */
+        background-color: lightcoral; /* Para visualização */
+    }
+}
