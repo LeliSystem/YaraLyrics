@@ -1,0 +1,280 @@
+/* Importar uma fonte legal do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap');
+
+:root {
+    --primary-color: #7306b3; /* Laranja vibrante, pode ajustar */
+    --secondary-color: #dd7129; /* Um cinza escuro/preto para tema de rádio */
+    --text-color: #e0e0e0;
+    --background-color: #121212; /* Fundo escuro */
+    --container-background: #1e1e1e;
+    --highlight-color: var(--primary-color);
+    --font-main: 'Poppins', sans-serif;
+    --font-display: 'Orbitron', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; 
+}
+
+header {
+    background: linear-gradient(to right, var(--primary-color), #dd7129);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 2.8em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+header h1 i {
+    margin-right: 10px;
+    animation: pulseIcon 2s infinite ease-in-out;
+}
+
+@keyframes pulseIcon {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.main-container {
+    display: flex;
+    flex: 1; 
+    padding: 20px;
+    gap: 20px; 
+    max-width: 1400px; 
+    margin: 20px auto;
+    width: 95%;
+}
+
+.now-playing-info {
+    background-color: var(--container-background);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 300px; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.album-art-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border: 3px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.album-art-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(var(--primary-color), 0.5);
+}
+
+#track-title {
+    font-family: var(--font-display);
+    font-size: 1.6em;
+    color: var(--primary-color);
+    margin: 10px 0 5px 0;
+    font-weight: 700;
+    word-break: break-word; /* Para títulos longos */
+}
+
+#track-artist {
+    font-size: 1.1em;
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: auto; 
+}
+
+.player-controls button {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+.player-controls button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+.player-controls button:active {
+    transform: scale(0.95);
+}
+
+.content-area {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.player-section, .lyrics-section {
+    background-color: var(--container-background);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    animation: fadeInRight 0.8s ease-out;
+}
+.player-section { animation-delay: 0.1s; }
+.lyrics-section { 
+    animation-delay: 0.2s; 
+    /* Não precisa mais de flex: 1 ou display: flex; flex-direction: column; 
+       se a altura de #lyrics-window for fixa ou baseada no conteúdo. */
+}
+
+.player-section h2, .lyrics-section h2 {
+    font-family: var(--font-display);
+    color: var(--primary-color);
+    border-bottom: 2px solid rgba(var(--primary-color), 0.3);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+.lyrics-section h2 i { margin-right: 8px; }
+
+/* Estilos para a NOVA janela de letras */
+#lyrics-window {
+    min-height: 120px; /* Ajuste para acomodar 3 linhas confortavelmente */
+    max-height: 180px; /* Ou altura desejada */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #222; /* Um pouco mais escuro para contraste */
+    overflow: hidden; /* Esconde qualquer conteúdo que exceda */
+    position: relative; /* Para futuras animações de transição das linhas */
+}
+
+#lyrics-window .lyric-line { /* Estilo base para todas as linhas na janela */
+    width: 100%;
+    padding: 5px 10px; /* Ajuste o padding */
+    margin: 2px 0; /* Espaçamento vertical mínimo entre as linhas */
+    box-sizing: border-box;
+    transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out, font-size 0.3s ease-in-out;
+    will-change: opacity, transform; /* Ajuda na performance da animação */
+    line-height: 2.3; /* Melhor legibilidade */
+}
+
+#lyrics-window .context-lyric { /* Linhas anterior e próxima */
+    opacity: 0.6;
+    font-size: 1.3em;
+    color: #aaa; /* Cor mais suave para contexto */
+    transform: scale(0.95);
+}
+
+#lyrics-window .active-lyric-display { /* Linha atual destacada */
+    opacity: 1;
+    font-weight: 784; /* Mais destaque */
+   color: #ff7300; /* Cor alaranjada para a linha ativa */
+    font-size: 1.6em; /* Maior para destaque */
+    transform: scale(1);
+    /* Adicionar uma borda sutil ou sombra para mais destaque se desejar */
+    /* border-bottom: 1px dashed rgba(var(--primary-color), 0.5); */
+}
+
+/* Mensagens de status/erro dentro da janela de letras */
+#lyrics-window .status-message,
+#lyrics-window .error-message {
+    font-style: italic;
+    opacity: 0.8;
+}
+#lyrics-window .error-message {
+    color: #ff6b6b; /* Cor para erros */
+}
+
+
+ footer {
+    background-color: #8c52ad; /* Azul claro */
+    color: black; /* Texto preto */
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; 
+    font-size: 0.9em;
+    border-top: 3px solid var(--primary-color);
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .now-playing-info {
+        width: 90%; 
+        max-width: 400px; 
+        margin-bottom: 20px;
+    }
+    .content-area {
+        width: 90%;
+        max-width: 700px; 
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 { font-size: 2.2em; }
+    #track-title { font-size: 1.4em; }
+    #track-artist { font-size: 1em; }
+    .player-controls button { width: 45px; height: 45px; font-size: 1em; }
+
+    #lyrics-window .lyric-line { font-size: 1em; }
+    #lyrics-window .context-lyric { font-size: 0.85em; }
+    #lyrics-window .active-lyric-display { font-size: 1.15em; }
+}
+
+@media (max-width: 480px) {
+    header h1 { font-size: 1.8em; }
+    .main-container { padding: 10px; gap: 15px; }
+    .now-playing-info, .content-area, .player-section, .lyrics-section {
+        padding: 15px;
+        width: 100%; /* Para ocupar toda a largura disponível */
+    }
+    .album-art-img { width: 150px; height: 150px; }
+    #lyrics-window { min-height: 90px; }
+}

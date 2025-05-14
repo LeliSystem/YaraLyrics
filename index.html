@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yara Alho FM - A Rádio que te move!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-headphones-alt"></i> Yara Alho FM</h1>
+        <p>Sintonize na sua vibe!</p>
+    </header>
+
+    <div class="main-container">
+        <aside class="now-playing-info">
+            <h2>No Ar Agora</h2>
+            <img id="album-art" src="placeholder-album-art.png" alt="Capa do Álbum" class="album-art-img">
+            <h3 id="track-title">Nome da Música</h3>
+            <p id="track-artist">Artista</p>
+
+            <div class="player-controls">
+                <button id="prev-track" aria-label="Faixa Anterior"><i class="fas fa-step-backward"></i></button>
+                <button id="play-pause" aria-label="Tocar/Pausar"><i class="fas fa-play"></i></button>
+                <button id="next-track" aria-label="Próxima Faixa"><i class="fas fa-step-forward"></i></button>
+            </div>
+        </aside>
+
+        <main class="content-area">
+            <section class="player-section">
+                <div id="soundcloud-player-container">
+                    <iframe id="soundcloud-player" width="100%" height="320" scrolling="no" frameborder="no" allow="autoplay"
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2018880222&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false&show_artwork=false">
+                    </iframe>
+                </div>
+                <div class="soundcloud-attribution" style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
+                    <a href="https://soundcloud.com/eduardo-lelis-347680577" title="Lelis Ed" target="_blank" style="color: #cccccc; text-decoration: none;">Lelis Ed</a> ·
+                    <a href="https://soundcloud.com/eduardo-lelis-347680577/sets/yara-alho-colection" title="Yara Alho (Collection)" target="_blank" style="color: #cccccc; text-decoration: none;">Yara Alho (Collection)</a>
+                </div>
+            </section>
+
+            <section class="lyrics-section">
+                <h2><i class="fas fa-microphone-alt"></i> Letra da Música</h2>
+                <div id="lyrics-window">
+                    <p id="lyric-prev" class="lyric-line context-lyric">&nbsp;</p>
+                    <p id="lyric-current" class="lyric-line active-lyric-display">Aguardando música...</p>
+                    <p id="lyric-next" class="lyric-line context-lyric">&nbsp;</p>
+                </div>
+            </section>
+
+            </main>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Yara Alho FM. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
